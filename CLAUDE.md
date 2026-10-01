@@ -84,13 +84,34 @@ python3 -m http.server 8000
 
 > Preferir revisar cambios de UI en local antes de deployar a staging/prod.
 
-## Estado
+## Deploy (en vivo desde 1-oct-2026)
 
-- Proyecto recién inicializado (1-oct-2026). Assets y landing importados desde
-  `~/Downloads`. Aún sin deploy ni repo remoto definido.
+| | |
+|---|---|
+| **Sitio** | https://retenia.mx y https://www.retenia.mx (HTTPS, SSL por Vercel) |
+| **Vercel** | proyecto `retenia`, cuenta personal **`christiangtz`** (scope default, NO pasar `--scope`) |
+| **GitHub** | https://github.com/chrisgt04/retenia (privado, cuenta `chrisgt04`) |
+| **Preview Vercel** | https://retenia-gamma.vercel.app |
+
+### Re-deploy
+```bash
+cd ~/Documents/retenia
+vercel deploy --prod --yes      # requiere `vercel login` con cuenta christiangtz
+```
+> El scope personal es el default; si se pasa `--scope christiangtrrz04-9975`
+> falla con "You cannot set your Personal Account as the scope".
+
+### DNS (GoDaddy, nameservers ns59/ns60.domaincontrol.com)
+- `A @` → `76.76.21.21`
+- `A www` → `76.76.21.21`
+- No tocar los demás registros (email secureserver / sistema GoDaddy).
+- **Gotcha:** GoDaddy sirve una página `/lander` (parking) mientras propaga el
+  DNS; NO es un registro de la tabla. Se resuelve solo al propagar (~min–2h).
+  Verificar con `curl --resolve retenia.mx:443:76.76.21.21 https://retenia.mx`.
 
 ## Pendientes / decisiones abiertas
 
-- [ ] Definir destino de deploy (Vercel / nginx+Docker / otro).
 - [ ] Decidir si se mantiene el formato bundle o se extrae a fuente editable.
 - [ ] Conectar CTA de la landing al flujo real de WhatsApp.
+- [ ] (Opcional) Conectar el repo de GitHub a Vercel para auto-deploy en cada
+      push (`vercel git connect`).
