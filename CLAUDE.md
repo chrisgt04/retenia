@@ -54,6 +54,26 @@ Si se quiere pasar a una landing "normal" mantenible, extraer el template del
 bundle a `index.html` plano + `/css` + `/js` y servir las `heroimages/` como
 archivos estáticos.
 
+## Hero images (⚠️ importante)
+
+El carrusel del hero muestra 7 fotos (una por categoría de negocio). El HTML
+exportado las referenciaba como `/_blob/<hash>` — binarios que **el export NO
+incluyó** (solo el logo quedó embebido). Por eso al abrir la página las fotos
+no cargaban. Se **reconectaron** las 7 referencias a `heroimages/N.png`:
+
+| Categoría | hash original | archivo local | foto |
+|-----------|---------------|---------------|------|
+| Cafeterías | `4664e45a…` | `heroimages/4.png` | barista con 2 cafés |
+| Restaurantes | `6dca93fb…` | `heroimages/1.png` | mesero con carta |
+| Salones de belleza | `e8aa6b82…` | `heroimages/2.png` | estilista con tijeras |
+| Consultorios | `3968123c…` | `heroimages/3.png` | médico con estetoscopio |
+| Gimnasios | `a4d36e7d…` | `heroimages/5.png` | mujer ropa deportiva |
+| Deportes | `21023c7c…` | `heroimages/6.png` | jugadora de pádel |
+| Veterinarias | `f56e8d96…` | `heroimages/7.png` | veterinario con perro |
+
+Si se regenera `index.html` desde el artifact, revisar que las fotos sigan
+embebidas; si vuelven como `/_blob/`, repetir este remapeo.
+
 ## Preview local
 
 ```bash
