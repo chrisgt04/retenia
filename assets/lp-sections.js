@@ -35,7 +35,7 @@
     ['¿Puedo medir resultados?','Sí. Ves quién regresa, cada cuánto, cuánto gasta y qué recompensa convierte mejor.']
   ];
   function card(ic,h,p){return '<div class="rt-card"><div class="ic">'+ic+'</div><h3>'+h+'</h3><p>'+p+'</p></div>';}
-  function demoCta(cls,txt){return '<a href="#demo" data-demo class="'+cls+'">'+(txt||'Agendar demo')+' &rarr;</a>';}
+  function demoCta(cls,txt){return '<a href="/agendar.html" class="'+cls+'">'+(txt||'Agendar demo')+' &rarr;</a>';}
   var WCARDS=[
     {i:'A',brand:'Aroma Café',sub:'Tarjeta de sellos',chip:'SELLOS',metric:'7 / 10',note:'La 10ª bebida va gratis',grad:'linear-gradient(145deg,#1E7A52,#133f2c)',stamps:7,st:10},
     {i:'I',brand:'Iron Gym',sub:'Miembro Gold',chip:'PUNTOS',metric:'2,450',note:'550 pts para tu próximo premio',grad:'linear-gradient(145deg,#176242,#0e4a3b)',prog:82},
