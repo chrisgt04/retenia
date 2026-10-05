@@ -10,6 +10,7 @@ fbq('init','2223417451555632');fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2223417451555632&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel -->
+<script src="https://www.google.com/recaptcha/api.js?render=6LcG8t8tAAAAAIwrDQRhXR1X_FwYDuZkrb_BvxZW"></script>
 <title>Retenia — Agenda tu demo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -151,6 +152,7 @@ input:focus,select:focus{border-color:var(--verde);box-shadow:0 0 0 4px rgba(30,
 <script>
 (function(){
   var T0=Date.now();
+  var SITEKEY='6LcG8t8tAAAAAIwrDQRhXR1X_FwYDuZkrb_BvxZW';
   var CAL="https://calendly.com/hola-retenia/30min";
   var HOOK="https://n8n.unifai.com.mx/webhook/87e15310-bc00-4a0d-a3cf-a5e1b724b389";
   var LADAS=[["🇲🇽","+52"],["🇺🇸","+1"],["🇨🇴","+57"],["🇦🇷","+54"],["🇨🇱","+56"],["🇵🇪","+51"],["🇪🇨","+593"],["🇬🇹","+502"],["🇪🇸","+34"]];
@@ -185,12 +187,15 @@ input:focus,select:focus{border-color:var(--verde);box-shadow:0 0 0 4px rgba(30,
     err.style.display='none';btn.disabled=true;btn.textContent='Enviando…';
     var qualified=(g('sucursales')!=='1'&&g('sucursales')!=='No tengo sucursal'&&parseInt((g('ticket').replace(/,/g,'').match(/[0-9]+/)||['0'])[0],10)>=300);
     var eventId='lead_'+Date.now()+'_'+Math.floor(Math.random()*1e6);
-    var data={nombre:g('nombre'),negocio:g('negocio'),whatsapp:lada+tel,correo:g('correo'),tipo_negocio:g('giro'),sucursales:g('sucursales'),ciudad:g('ciudad'),rol:g('rol'),ticket_promedio:g('ticket'),submittedAt:new Date().toISOString(),event_id:eventId,page_url:location.href,referrer:document.referrer||'',user_agent:navigator.userAgent,utm_source:qp('utm_source'),utm_medium:qp('utm_medium'),utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content'),utm_term:qp('utm_term'),fbclid:qp('fbclid'),fbp:ck('_fbp'),fbc:ck('_fbc'),hp:g('website'),ff:(Date.now()-T0)};
-    var body=Object.keys(data).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(data[k]);}).join('&');
-    if(qualified){try{if(window.fbq)fbq('track','Lead',{content_name:'Demo Request',currency:'MXN',value:0},{eventID:eventId});}catch(_){}}
-    function go(){if(sent)return;sent=true;location.href=CAL+'?name='+encodeURIComponent(data.nombre)+'&email='+encodeURIComponent(data.correo);}
-    try{fetch(HOOK,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:body}).then(go,go);}catch(_){}
-    setTimeout(go,1800);
+    function finish(token){
+      var data={nombre:g('nombre'),negocio:g('negocio'),whatsapp:lada+tel,correo:g('correo'),tipo_negocio:g('giro'),sucursales:g('sucursales'),ciudad:g('ciudad'),rol:g('rol'),ticket_promedio:g('ticket'),submittedAt:new Date().toISOString(),event_id:eventId,page_url:location.href,referrer:document.referrer||'',user_agent:navigator.userAgent,utm_source:qp('utm_source'),utm_medium:qp('utm_medium'),utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content'),utm_term:qp('utm_term'),fbclid:qp('fbclid'),fbp:ck('_fbp'),fbc:ck('_fbc'),hp:g('website'),ff:(Date.now()-T0),recaptcha_token:token||''};
+      var body=Object.keys(data).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(data[k]);}).join('&');
+      if(qualified){try{if(window.fbq)fbq('track','Lead',{content_name:'Demo Request',currency:'MXN',value:0},{eventID:eventId});}catch(_){}}
+      function go(){if(sent)return;sent=true;location.href=CAL+'?name='+encodeURIComponent(data.nombre)+'&email='+encodeURIComponent(data.correo);}
+      try{fetch(HOOK,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:body}).then(go,go);}catch(_){}
+      setTimeout(go,1800);
+    }
+    if(window.grecaptcha&&grecaptcha.execute){try{grecaptcha.ready(function(){grecaptcha.execute(SITEKEY,{action:'submit'}).then(finish,function(){finish('');});});}catch(_){finish('');}}else{finish('');}
   });
 })();
 </script>
