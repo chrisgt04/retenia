@@ -13,59 +13,140 @@ fbq('init','2223417451555632');fbq('track','PageView');
 <title>Retenia — Agenda tu demo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--verde:#1E7A52;--verde6:#176242;--v900:#0F1714;--menta:#A8EBD3;--cream:#faf9f5}
+:root{
+  --verde:#1E7A52;--verde6:#176242;--v900:#0F1714;--menta:#A8EBD3;
+  --cream:#faf9f5;--ink:#0f1714;--muted:#5f6864;--line:rgba(15,23,20,.12);
+  --f-disp:'Bricolage Grotesque',sans-serif;--f-body:'Instrument Sans',system-ui,sans-serif;--f-scr:'Caveat',cursive;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Instrument Sans',system-ui,sans-serif;color:#0f1714;background:radial-gradient(120% 90% at 80% -10%,#2B8C5D 0%,#1E6B4A 42%,#133f2c 85%);min-height:100vh;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;align-items:center;padding:24px 18px 48px}
-header{width:100%;max-width:520px;padding:14px 0 10px;display:flex;justify-content:center}
-header img{height:34px}
-.card{background:var(--cream);width:100%;max-width:520px;border-radius:24px;padding:30px 26px 26px;box-shadow:0 40px 90px -30px rgba(0,0,0,.5);margin-top:6px}
-h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:27px;letter-spacing:-.02em;line-height:1.08}
+html,body{min-height:100%}
+body{
+  font-family:var(--f-body);color:var(--ink);background:#0c3326;
+  min-height:100dvh;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;
+  display:flex;flex-direction:column;align-items:center;padding:22px 16px 44px;
+}
+/* ---------- Fondo vivo ---------- */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;
+  background:radial-gradient(130% 110% at 78% -12%,#2f9c67 0%,#1e6b4a 44%,#0f4231 78%,#0a2c21 100%);}
+.blob{position:absolute;border-radius:50%;filter:blur(64px);opacity:.5;mix-blend-mode:screen;will-change:transform}
+.b1{width:48vw;height:48vw;background:#48d79a;left:-10vw;top:-10vw;animation:drift1 23s ease-in-out infinite}
+.b2{width:42vw;height:42vw;background:#1bbf84;right:-14vw;top:12vh;animation:drift2 28s ease-in-out infinite}
+.b3{width:38vw;height:38vw;background:#0f6f52;left:26vw;bottom:-20vw;animation:drift3 25s ease-in-out infinite}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6vw,4vh) scale(1.12)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-5vw,6vh) scale(1.08)}}
+@keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(4vw,-6vh) scale(1.14)}}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+/* tarjeta de lealtad flotando (motivo de marca) */
+.motif{position:fixed;z-index:1;pointer-events:none;width:208px;border-radius:18px;padding:16px 16px 14px;
+  background:linear-gradient(135deg,#1E7A52,#0f4231);color:#eafff5;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.14);display:none}
+.motif .m-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;opacity:.85}
+.motif .m-dots{display:flex;gap:6px;margin:16px 0 10px}
+.motif .m-dots i{width:15px;height:15px;border-radius:50%;background:rgba(255,255,255,.18);display:block}
+.motif .m-dots i.on{background:var(--menta)}
+.motif .m-note{font-family:var(--f-scr);font-size:21px;color:var(--menta);line-height:1}
+.m-a{top:11vh;left:5vw;transform:rotate(-9deg);animation:floatA 7.5s ease-in-out infinite}
+.m-b{bottom:9vh;right:5vw;width:182px;transform:rotate(7deg);animation:floatB 8.5s ease-in-out infinite}
+@keyframes floatA{0%,100%{transform:rotate(-9deg) translateY(0)}50%{transform:rotate(-7deg) translateY(-16px)}}
+@keyframes floatB{0%,100%{transform:rotate(7deg) translateY(0)}50%{transform:rotate(9deg) translateY(-14px)}}
+@media(min-width:1180px){.motif{display:block}}
+/* ---------- Contenido ---------- */
+.wrap{position:relative;z-index:2;width:100%;max-width:560px;display:flex;flex-direction:column;align-items:center}
+header{padding:4px 0 16px}
+header img{height:32px;filter:brightness(0) invert(1);opacity:.96}
+.card{background:var(--cream);width:100%;border-radius:28px;padding:30px 28px 26px;position:relative;overflow:hidden;
+  box-shadow:0 54px 110px -36px rgba(0,0,0,.6), 0 2px 0 rgba(255,255,255,.45) inset;
+  animation:rise .6s cubic-bezier(.22,1,.36,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.card::before{content:"";position:absolute;top:-40%;right:-30%;width:70%;height:80%;
+  background:radial-gradient(closest-side,rgba(168,235,211,.5),transparent);pointer-events:none}
+.eyebrow{position:relative;font-family:var(--f-scr);font-size:22px;color:var(--verde);line-height:1;margin-bottom:4px}
+h1{position:relative;font-family:var(--f-disp);font-weight:800;font-size:28px;letter-spacing:-.02em;line-height:1.08}
 h1 em{font-style:normal;color:var(--verde)}
-.sub{font-size:14.5px;color:#5f6864;margin:8px 0 18px;line-height:1.5}
-label{display:block;font-size:12.5px;font-weight:600;margin:13px 0 5px;color:#24392f}
-input,select{width:100%;padding:12px 13px;border:1px solid rgba(15,23,20,.16);border-radius:12px;font-size:16px;background:#fff;color:#0f1714;outline:none;font-family:inherit}
-input:focus,select:focus{border-color:var(--verde);box-shadow:0 0 0 3px rgba(30,122,82,.15)}
-.phone{display:flex;gap:8px}.phone select{width:128px;flex:none}
-.row{display:flex;gap:10px}.row>div{flex:1;min-width:0}
-#go{width:100%;margin-top:20px;padding:15px;border:0;border-radius:999px;background:var(--verde);color:#fff;font-size:17px;font-weight:700;cursor:pointer;font-family:inherit}
-#go:hover{background:var(--verde6)}#go:disabled{opacity:.6;cursor:default}
-#err{color:#b4232a;font-size:13.5px;margin-top:10px;display:none;line-height:1.4}
-.trust{text-align:center;font-size:12.5px;color:#5f6864;margin-top:14px}
-.back{color:rgba(255,255,255,.85);text-decoration:none;font-size:13px;margin-top:18px}
-@media(max-width:560px){.row{flex-direction:column;gap:0}}
+.sub{position:relative;font-size:14.5px;color:var(--muted);margin:9px 0 6px;line-height:1.5}
+form{position:relative}
+label{display:block;font-size:12.5px;font-weight:600;margin:14px 0 5px;color:#24392f}
+input,select{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:13px;font-size:16px;
+  background:#fff;color:var(--ink);outline:none;font-family:inherit;transition:border-color .18s,box-shadow .18s,transform .12s}
+input:focus,select:focus{border-color:var(--verde);box-shadow:0 0 0 4px rgba(30,122,82,.14)}
+.phone{display:flex;gap:9px}.phone select{width:120px;flex:none}
+.row{display:flex;gap:11px}.row>div{flex:1;min-width:0}
+#go{position:relative;overflow:hidden;width:100%;margin-top:22px;padding:15px;border:0;border-radius:999px;
+  background:var(--verde);color:#fff;font-size:17px;font-weight:700;cursor:pointer;font-family:inherit;
+  box-shadow:0 16px 30px -14px rgba(30,122,82,.75);transition:background .18s,transform .15s,box-shadow .15s}
+#go:hover{background:var(--verde6);transform:translateY(-1px);box-shadow:0 20px 36px -14px rgba(30,122,82,.8)}
+#go:active{transform:translateY(0)}
+#go:disabled{opacity:.65;cursor:default;transform:none}
+#go::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-18deg);
+  animation:shine 3.4s ease-in-out infinite}
+@keyframes shine{0%,62%{left:-120%}80%,100%{left:140%}}
+#err{color:#b4232a;font-size:13.5px;margin-top:11px;display:none;line-height:1.4;font-weight:500}
+.reassure{display:flex;gap:7px;align-items:center;justify-content:center;font-size:12.5px;color:var(--muted);margin-top:14px}
+/* trust strip bajo la card */
+.trust{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.trust span{color:rgba(255,255,255,.85);font-size:12.5px;display:flex;align-items:center;gap:6px}
+.trust b{color:var(--menta);font-weight:700}
+.back-home{color:rgba(255,255,255,.72);text-decoration:none;font-size:13px;margin-top:16px}
+.back-home:hover{color:#fff}
+@media(max-width:560px){.row{flex-direction:column;gap:0}h1{font-size:25px}.card{padding:26px 20px 22px}}
+@media(prefers-reduced-motion:reduce){.blob,.motif,#go::after,.card{animation:none}}
 </style>
 </head>
 <body>
-<header><a href="/"><img src="/assets/logo.png" alt="Retenia"></a></header>
-<div class="card">
-  <h1>Agenda tu <em>demo</em></h1>
-  <p class="sub">Déjanos tus datos y elige un horario. Te mostramos Retenia en 30 minutos, personalizado para tu negocio.</p>
-  <form id="f" novalidate>
-    <label>Nombre*</label><input name="nombre" required autocomplete="name">
-    <label>Empresa / Negocio*</label><input name="negocio" required>
-    <label>WhatsApp*</label>
-    <div class="phone">
-      <select name="lada" id="lada"></select>
-      <input name="telefono" required inputmode="numeric" placeholder="10 dígitos" autocomplete="tel">
-    </div>
-    <label>Correo*</label><input name="correo" type="email" required autocomplete="email">
-    <label>Giro del negocio*</label><select name="giro" required id="giro"></select>
-    <div class="row">
-      <div><label>Sucursales*</label><select name="sucursales" required id="suc"></select></div>
-      <div><label>Ciudad*</label><input name="ciudad" required></div>
-    </div>
-    <div class="row">
-      <div><label>Rol*</label><select name="rol" required id="rol"></select></div>
-      <div><label>Ticket promedio*</label><select name="ticket" required id="tk"></select></div>
-    </div>
-    <div id="err"></div>
-    <button id="go" type="submit">Continuar a agendar →</button>
-    <div class="trust">Demo de 30 min · sin compromiso</div>
-  </form>
+<div class="bg"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+<div class="grain"></div>
+<div class="motif m-a">
+  <div class="m-top"><span>Tarjeta Retenia</span><span>★</span></div>
+  <div class="m-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+  <div class="m-note">¡1 café gratis!</div>
 </div>
-<a class="back" href="/">← Volver</a>
+<div class="motif m-b">
+  <div class="m-top"><span>Recompensa</span><span>🎁</span></div>
+  <div class="m-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <div class="m-note">¡Lo lograste!</div>
+</div>
+
+<div class="wrap">
+  <header><a href="/"><img src="/assets/logo.png" alt="Retenia"></a></header>
+  <div class="card">
+    <div class="eyebrow">Tu demo, a tu medida</div>
+    <h1>Agenda tu <em>demo</em></h1>
+    <p class="sub">Déjanos tus datos y elige un horario. Te mostramos Retenia en 30 minutos, personalizado para tu negocio.</p>
+    <form id="f" novalidate>
+      <label>Nombre*</label><input name="nombre" required autocomplete="name">
+      <label>Empresa / Negocio*</label><input name="negocio" required>
+      <label>WhatsApp*</label>
+      <div class="phone">
+        <select name="lada" id="lada"></select>
+        <input name="telefono" required inputmode="numeric" placeholder="10 dígitos" autocomplete="tel">
+      </div>
+      <label>Correo*</label><input name="correo" type="email" required autocomplete="email">
+      <label>Giro del negocio*</label><select name="giro" required id="giro"></select>
+      <div class="row">
+        <div><label>Sucursales*</label><select name="sucursales" required id="suc"></select></div>
+        <div><label>Ciudad*</label><input name="ciudad" required></div>
+      </div>
+      <div class="row">
+        <div><label>Rol*</label><select name="rol" required id="rol"></select></div>
+        <div><label>Ticket promedio*</label><select name="ticket" required id="tk"></select></div>
+      </div>
+      <div id="err"></div>
+      <button id="go" type="submit">Continuar a agendar →</button>
+      <div class="reassure">🔒 Sin spam · demo de 30 min · sin compromiso</div>
+    </form>
+  </div>
+  <div class="trust">
+    <span>🟢 <b>+1,000</b> negocios</span>
+    <span>⚡ Setup en <b>15 min</b></span>
+    <span>📱 Sin tarjetas físicas</span>
+  </div>
+  <a class="back-home" href="/">← Volver al inicio</a>
+</div>
+
 <script>
 (function(){
   var CAL="https://calendly.com/hola-retenia/30min";
@@ -86,17 +167,25 @@ input:focus,select:focus{border-color:var(--verde);box-shadow:0 0 0 3px rgba(30,
     var f=e.target,btn=document.getElementById('go'),err=document.getElementById('err');
     var g=function(n){return (f.elements[n]&&f.elements[n].value||'').trim();};
     var tel=g('telefono').replace(/\D/g,''),lada=g('lada').replace(/\D/g,'');
-    if(!g('nombre')||!g('negocio')||tel.length<8||!/.+@.+\..+/.test(g('correo'))||!g('giro')||!g('sucursales')||!g('ciudad')||!g('rol')||!g('ticket')){
-      err.textContent='Completa todos los campos (WhatsApp y correo válidos).';err.style.display='block';return;
-    }
-    if(g('sucursales')==='1'||g('sucursales')==='No tengo sucursal'||parseInt((g('ticket').replace(/,/g,'').match(/[0-9]+/)||['0'])[0],10)<300){
-      err.textContent='Por ahora Retenia trabaja con negocios de más de 1 sucursal y ticket promedio desde $300. Aún no podemos agendar tu demo.';err.style.display='block';return;
-    }
+    var faltan=[];
+    if(!g('nombre'))faltan.push('tu nombre');
+    if(!g('negocio'))faltan.push('tu empresa');
+    if(!tel)faltan.push('tu WhatsApp');
+    if(!g('correo'))faltan.push('tu correo');
+    if(!g('giro'))faltan.push('el giro');
+    if(!g('sucursales'))faltan.push('sucursales');
+    if(!g('ciudad'))faltan.push('tu ciudad');
+    if(!g('rol'))faltan.push('tu rol');
+    if(!g('ticket'))faltan.push('el ticket promedio');
+    if(faltan.length){err.textContent='Falta completar: '+faltan.join(', ')+'.';err.style.display='block';return;}
+    if(tel.length<8){err.textContent='Tu número de WhatsApp parece incompleto.';err.style.display='block';return;}
+    if(!/.+@.+\..+/.test(g('correo'))){err.textContent='Revisa tu correo, parece tener un error.';err.style.display='block';return;}
     err.style.display='none';btn.disabled=true;btn.textContent='Enviando…';
+    var qualified=(g('sucursales')!=='1'&&g('sucursales')!=='No tengo sucursal'&&parseInt((g('ticket').replace(/,/g,'').match(/[0-9]+/)||['0'])[0],10)>=300);
     var eventId='lead_'+Date.now()+'_'+Math.floor(Math.random()*1e6);
     var data={nombre:g('nombre'),negocio:g('negocio'),whatsapp:lada+tel,correo:g('correo'),tipo_negocio:g('giro'),sucursales:g('sucursales'),ciudad:g('ciudad'),rol:g('rol'),ticket_promedio:g('ticket'),submittedAt:new Date().toISOString(),event_id:eventId,page_url:location.href,referrer:document.referrer||'',user_agent:navigator.userAgent,utm_source:qp('utm_source'),utm_medium:qp('utm_medium'),utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content'),utm_term:qp('utm_term'),fbclid:qp('fbclid'),fbp:ck('_fbp'),fbc:ck('_fbc')};
     var body=Object.keys(data).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(data[k]);}).join('&');
-    try{if(window.fbq)fbq('track','Lead',{content_name:'Demo Request',currency:'MXN',value:0},{eventID:eventId});}catch(_){}
+    if(qualified){try{if(window.fbq)fbq('track','Lead',{content_name:'Demo Request',currency:'MXN',value:0},{eventID:eventId});}catch(_){}}
     function go(){if(sent)return;sent=true;location.href=CAL+'?name='+encodeURIComponent(data.nombre)+'&email='+encodeURIComponent(data.correo);}
     try{fetch(HOOK,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:body}).then(go,go);}catch(_){}
     setTimeout(go,1800);
