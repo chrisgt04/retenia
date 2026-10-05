@@ -11,6 +11,27 @@ fbq('init','2223417451555632');fbq('track','PageView');
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2223417451555632&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel -->
 
+<!-- Sticky CTA movil -->
+<style>
+#rt-sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:2147483000;display:none;align-items:center;justify-content:center;text-align:center;padding:15px 20px;border-radius:999px;background:#1E7A52;color:#fff;font-family:'Instrument Sans',system-ui,sans-serif;font-weight:700;font-size:16px;line-height:1.1;text-decoration:none;box-shadow:0 16px 34px -10px rgba(0,0,0,.55);-webkit-tap-highlight-color:transparent;transition:transform .15s,background .15s;animation:rtup .5s cubic-bezier(.22,1,.36,1) both}
+#rt-sticky:active{background:#176242;transform:scale(.98)}
+@keyframes rtup{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@media(max-width:760px){#rt-sticky{display:flex}}
+@supports(padding:max(0px)){@media(max-width:760px){#rt-sticky{bottom:max(12px,env(safe-area-inset-bottom))}}}
+@media(prefers-reduced-motion:reduce){#rt-sticky{animation:none}}
+</style>
+<script>
+(function(){
+  var HREF='/agendar', TXT='Fideliza a tus clientes hoy \u2192';
+  function mk(){ if(!document.body||document.getElementById('rt-sticky'))return;
+    var a=document.createElement('a'); a.id='rt-sticky'; a.href=HREF; a.setAttribute('aria-label','Agendar demo'); a.textContent=TXT; document.body.appendChild(a); }
+  function boot(){ mk(); try{ new MutationObserver(mk).observe(document.body,{childList:true}); }catch(e){} }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot); else boot();
+  window.addEventListener('load',mk);
+})();
+</script>
+<!-- End Sticky CTA -->
+
   <title>Retenia — Tarjetas de lealtad para tu negocio</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
