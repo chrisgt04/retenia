@@ -238,7 +238,7 @@ footer .brand{justify-content:center;margin-bottom:10px}
 <body>
 <nav class="nav"><div class="wrap in">
   <a class="brand" href="/"><img src="/assets/logo.png" alt="Retenia"></a>
-  <a class="cta" href="/agendar.html">Agendar demo</a>
+  <a class="cta" href="/agendar">Agendar demo</a>
 </div></nav>
 
 <main class="wrap">
@@ -249,7 +249,7 @@ footer .brand{justify-content:center;margin-bottom:10px}
       <h1 style="margin-top:20px">Tus clientes<br>vuelven <span class="scrpt">solos.</span></h1>
       <p class="lead">Retenia pone una tarjeta de lealtad en el wallet de tus clientes y les recuerda volver por WhatsApp. Retener cuesta hasta <b>5× menos</b> que conseguir clientes nuevos.</p>
       <div class="hero-cta">
-        <a class="cta cta-lg" href="/agendar.html">Agendar demo &rarr;</a>
+        <a class="cta cta-lg" href="/agendar">Agendar demo &rarr;</a>
         <a class="ghost" href="#como"><span class="pl">▶</span> Ver cómo funciona</a>
       </div>
       <div class="miniStats">
@@ -326,7 +326,7 @@ footer .brand{justify-content:center;margin-bottom:10px}
       </div>
     </div>
     <div class="acc" id="accFeat" style="max-width:760px;margin:40px auto 0"></div>
-    <div style="text-align:center;margin-top:34px" data-reveal><a class="cta cta-lg" href="/agendar.html">Agendar demo &rarr;</a></div>
+    <div style="text-align:center;margin-top:34px" data-reveal><a class="cta cta-lg" href="/agendar">Agendar demo &rarr;</a></div>
   </div>
 </section>
 
@@ -359,7 +359,7 @@ footer .brand{justify-content:center;margin-bottom:10px}
 <section class="final" data-reveal>
   <h2>¿Listo para que tus clientes <span class="scrpt">vuelvan solos</span>?</h2>
   <p class="lead">Agenda una demo de 30 minutos, personalizada para tu negocio.</p>
-  <a class="cta cta-lg" href="/agendar.html">Agendar demo &rarr;</a>
+  <a class="cta cta-lg" href="/agendar">Agendar demo &rarr;</a>
   <div class="micro">Sin compromiso · te mostramos Retenia en vivo</div>
 </section>
 
@@ -414,7 +414,7 @@ footer .brand{justify-content:center;margin-bottom:10px}
     {n:'Pro',m:3999,a:3199,f:['Todo lo de Growth','10 tipos de tarjetas','50 managers','Clientes ilimitados','Diseño 100% a medida']}
   ];
   function money(x){return '$'+x.toLocaleString('es-MX');}
-  function renderPlans(cyc){document.getElementById('plans').innerHTML=PLANS.map(function(p){return '<div class="plan'+(p.pop?' pop':'')+'" data-reveal>'+(p.pop?'<span class="badge">Más popular</span>':'')+'<div class="pn">'+p.n+'</div><div class="pr">'+money(cyc==='a'?p.a:p.m)+' <small>MXN</small></div><div class="per">por mes · facturado '+(cyc==='a'?'anual':'mensual')+'</div><ul>'+p.f.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul><a class="cta" href="/agendar.html" style="justify-content:center">Agendar demo &rarr;</a></div>';}).join('');obs();}
+  function renderPlans(cyc){document.getElementById('plans').innerHTML=PLANS.map(function(p){return '<div class="plan'+(p.pop?' pop':'')+'" data-reveal>'+(p.pop?'<span class="badge">Más popular</span>':'')+'<div class="pn">'+p.n+'</div><div class="pr">'+money(cyc==='a'?p.a:p.m)+' <small>MXN</small></div><div class="per">por mes · facturado '+(cyc==='a'?'anual':'mensual')+'</div><ul>'+p.f.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul><a class="cta" href="/agendar" style="justify-content:center">Agendar demo &rarr;</a></div>';}).join('');obs();}
   renderPlans('m');
   document.querySelectorAll('.toggle button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.toggle button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');renderPlans(b.getAttribute('data-cyc'));});});
 
