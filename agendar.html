@@ -163,7 +163,9 @@ input:focus,select:focus{border-color:var(--verde);box-shadow:0 0 0 4px rgba(30,
   function fill(id,arr,ph){var s=document.getElementById(id);s.innerHTML='<option value="">'+(ph||'Selecciona…')+'</option>'+arr.map(function(v){return '<option>'+v+'</option>';}).join('');}
   document.getElementById('lada').innerHTML=LADAS.map(function(l,i){return '<option value="'+l[1]+'"'+(i===0?' selected':'')+'>'+l[0]+' '+l[1]+'</option>';}).join('');
   fill('giro',GIROS);fill('suc',SUC);fill('rol',ROLES);fill('tk',TICKETS);
-  function qp(n){try{return new URLSearchParams(location.search).get(n)||"";}catch(e){return "";}}
+  // UTMs/fbclid: primero los de esta URL; si no hay, los de la página de retenia.mx de donde vino (home o lp/)
+  function refQs(){try{var r=new URL(document.referrer);return r.host===location.host?r.searchParams:null;}catch(e){return null;}}
+  function qp(n){try{var v=new URLSearchParams(location.search).get(n);if(v)return v;var r=refQs();return (r&&r.get(n))||"";}catch(e){return "";}}
   function ck(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?m.pop():"";}
   var sent=false;
   document.getElementById('f').addEventListener('submit',function(e){
