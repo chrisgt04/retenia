@@ -10,6 +10,7 @@ fbq('init','2223417451555632');fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2223417451555632&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel -->
+<script src="/assets/track.js"></script>
 <script src="https://www.google.com/recaptcha/api.js?render=6LcG8t8tAAAAAIwrDQRhXR1X_FwYDuZkrb_BvxZW"></script>
 <title>Retenia — Agenda tu demo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -169,6 +170,9 @@ input:focus,select:focus{border-color:var(--verde);box-shadow:0 0 0 4px rgba(30,
   function ck(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?m.pop():"";}
   // nombre que escribieron en el hero del home (?negocio=...)
   try{var nb=new URLSearchParams(location.search).get('negocio');if(nb)document.querySelector('#f [name="negocio"]').value=nb.slice(0,80);}catch(_){}
+  function ev(n,p){try{if(window.rtTrack)rtTrack(n,p);}catch(_){}}
+  (function(){var F=document.getElementById('f'),on=false;function st(){if(on)return;on=true;ev('FormInicio',{negocio_prellenado:F.elements['negocio'].value?'si':'no'});}
+    F.addEventListener('input',st,true);F.addEventListener('change',st,true);})();
   var sent=false;
   document.getElementById('f').addEventListener('submit',function(e){
     e.preventDefault();
@@ -185,11 +189,12 @@ input:focus,select:focus{border-color:var(--verde);box-shadow:0 0 0 4px rgba(30,
     if(!g('ciudad'))faltan.push('tu ciudad');
     if(!g('rol'))faltan.push('tu rol');
     if(!g('ticket'))faltan.push('el ticket promedio');
-    if(faltan.length){err.textContent='Falta completar: '+faltan.join(', ')+'.';err.style.display='block';return;}
-    if(tel.length<8){err.textContent='Tu número de WhatsApp parece incompleto.';err.style.display='block';return;}
-    if(!/.+@.+\..+/.test(g('correo'))){err.textContent='Revisa tu correo, parece tener un error.';err.style.display='block';return;}
+    if(faltan.length){err.textContent='Falta completar: '+faltan.join(', ')+'.';err.style.display='block';ev('FormError',{motivo:'faltan_campos'});return;}
+    if(tel.length<8){err.textContent='Tu número de WhatsApp parece incompleto.';err.style.display='block';ev('FormError',{motivo:'whatsapp'});return;}
+    if(!/.+@.+\..+/.test(g('correo'))){err.textContent='Revisa tu correo, parece tener un error.';err.style.display='block';ev('FormError',{motivo:'correo'});return;}
     err.style.display='none';btn.disabled=true;btn.textContent='Enviando…';
     var qualified=(g('sucursales')!=='1'&&g('sucursales')!=='No tengo sucursal'&&parseInt((g('ticket').replace(/,/g,'').match(/[0-9]+/)||['0'])[0],10)>=300);
+    ev('FormEnviado',{califica:qualified?'si':'no',giro:g('giro'),sucursales:g('sucursales'),ticket:g('ticket')});
     var eventId='lead_'+Date.now()+'_'+Math.floor(Math.random()*1e6);
     function finish(token){
       var data={nombre:g('nombre'),negocio:g('negocio'),whatsapp:lada+tel,correo:g('correo'),tipo_negocio:g('giro'),sucursales:g('sucursales'),ciudad:g('ciudad'),rol:g('rol'),ticket_promedio:g('ticket'),submittedAt:new Date().toISOString(),event_id:eventId,page_url:location.href,referrer:document.referrer||'',user_agent:navigator.userAgent,utm_source:qp('utm_source'),utm_medium:qp('utm_medium'),utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content'),utm_term:qp('utm_term'),fbclid:qp('fbclid'),fbp:ck('_fbp'),fbc:ck('_fbc'),hp:g('website'),ff:(Date.now()-T0),recaptcha_token:token||''};
