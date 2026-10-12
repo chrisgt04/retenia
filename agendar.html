@@ -264,7 +264,7 @@ fieldset.chips{min-inline-size:0}
     var btn=$('go');
     var tel=g('telefono').replace(/\D/g,''),lada=g('lada').replace(/\D/g,'');
     btn.disabled=true;btn.firstChild.nodeValue='Enviando… ';
-    var qualified=(g('sucursales')!=='1'&&g('sucursales')!=='No tengo sucursal'&&parseInt((g('ticket').replace(/,/g,'').match(/[0-9]+/)||['0'])[0],10)>=300);
+    var qualified=(g('sucursales')!=='No tengo sucursal'&&parseInt((g('ticket').replace(/,/g,'').match(/[0-9]+/)||['0'])[0],10)>=300);
     ev('FormEnviado',{califica:qualified?'si':'no',giro:g('giro'),sucursales:g('sucursales'),ticket:g('ticket')});
     var eventId='lead_'+Date.now()+'_'+Math.floor(Math.random()*1e6);
     function finish(token){
