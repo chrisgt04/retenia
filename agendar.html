@@ -12,37 +12,31 @@ fbq('init','2223417451555632');fbq('track','PageView');
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2223417451555632&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel -->
 <script src="/assets/track.js"></script>
-<title>Retenia — Agenda tu demo</title>
+<title>Retenia — Agenda tu demo gratuita</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--lienzo:#E6EAE8;--hoja:#F6F8F7;--tinta:#0E1A15;--tinta2:#46524D;--tinta3:#7A8580;--linea:rgba(14,26,21,.12);--verde:#1E7A52;--verde6:#176242;--menta:#A8EBD3;--wa:#25D366;--err:#B4232A;--ease:cubic-bezier(.2,.7,.2,1)}
+:root{--lienzo:#E6EAE8;--tinta:#0E1A15;--tinta2:#46524D;--tinta3:#7A8580;--linea:rgba(14,26,21,.14);--verde:#1E7A52;--verde6:#176242;--menta:#A8EBD3;--wa:#25D366;--err:#B4232A;--ease:cubic-bezier(.2,.7,.2,1)}
 *{margin:0;padding:0;box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{font-family:'Instrument Sans',system-ui,sans-serif;color:var(--tinta);background:var(--lienzo);-webkit-font-smoothing:antialiased;min-height:100vh;min-height:100dvh;overflow-x:hidden}
+body{font-family:'Instrument Sans',system-ui,sans-serif;color:var(--tinta);background:var(--lienzo);-webkit-font-smoothing:antialiased;min-height:100vh;min-height:100dvh}
 a{color:var(--verde)}
-.page{max-width:1240px;margin:0 auto;padding:20px 24px 48px;display:flex;flex-direction:column;min-height:100vh;min-height:100dvh}
+.page{max-width:1180px;margin:0 auto;padding:20px 24px 48px}
 .top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
 .top img{height:32px;width:auto;display:block}
 .top .back{font-size:14px;color:var(--tinta2);text-decoration:none}
 .top .back:hover{color:var(--tinta)}
-.grid{flex:1;display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:center}
+.grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
 
-/* ---- columna izquierda: lo que gana ---- */
-.side h1{font-weight:400;font-size:clamp(40px,4.6vw,64px);line-height:1;letter-spacing:-.05em;margin:18px 0 18px}
-.side h1 .g{color:var(--tinta3)}
+/* columna izquierda */
+.side{position:sticky;top:32px;padding-top:12px}
 .tag{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.66);border:1px solid #fff;font-size:14px;font-weight:500;color:var(--tinta2)}
 .tag i{width:8px;height:8px;border-radius:50%;background:var(--wa)}
-.side .lead{font-size:18px;line-height:1.55;color:var(--tinta2);max-width:28em}
-.gets{display:grid;gap:10px;margin-top:28px;max-width:460px}
-.get{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.66);border:1px solid #fff}
-.get .n{flex:none;width:30px;height:30px;border-radius:10px;background:var(--tinta);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:600}
-.get b{display:block;font-size:15.5px;font-weight:600}
-.get span{font-size:14px;color:var(--tinta2)}
-/* tarjeta en vivo */
-.live{position:relative;margin-top:28px;width:300px;max-width:100%;border-radius:20px;padding:16px;color:#fff;background:var(--g,linear-gradient(150deg,#2a7a58,#13553b));box-shadow:0 30px 50px -28px rgba(14,26,21,.7);transform:rotate(-3deg);transition:background .5s}
+.side h1{font-weight:400;font-size:clamp(40px,4.4vw,60px);line-height:1.02;letter-spacing:-.05em;margin:18px 0 16px}
+.side .lead{font-size:18px;line-height:1.55;color:var(--tinta2);max-width:27em}
+.live{position:relative;margin-top:32px;width:300px;max-width:100%;border-radius:20px;padding:16px;color:#fff;background:var(--g,linear-gradient(150deg,#2a7a58,#13553b));box-shadow:0 30px 50px -28px rgba(14,26,21,.7);transform:rotate(-3deg);transition:background .5s}
 .live::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.18),transparent 45%);pointer-events:none}
 .live .t{display:flex;align-items:center;gap:10px}
 .live .lg{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.2);display:grid;place-items:center;font-weight:700;font-size:13px}
@@ -56,72 +50,66 @@ a{color:var(--verde)}
 .live .cap{font-size:11.5px;opacity:.85}
 .livecap{font-size:13px;color:var(--tinta3);margin-top:12px}
 
-/* ---- tarjeta del formulario ---- */
-.card{background:#fff;border-radius:32px;padding:32px;box-shadow:0 50px 90px -50px rgba(14,26,21,.5);position:relative}
-.prog{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+/* tarjeta del formulario */
+.card{background:#fff;border-radius:32px;padding:30px 32px 28px;box-shadow:0 50px 90px -50px rgba(14,26,21,.5)}
+.prog{display:flex;align-items:center;gap:14px;margin-bottom:24px}
 .prog .bar{flex:1;height:6px;border-radius:9px;background:#E3E8E5;overflow:hidden}
-.prog .bar i{display:block;height:100%;width:33.3%;border-radius:9px;background:var(--verde);transition:width .6s var(--ease)}
-.prog span{font-size:13px;font-weight:600;color:var(--tinta3);white-space:nowrap}
-.step{display:none}
-.step.on{display:block;animation:stepin .5s var(--ease)}
-.step.on.back{animation-name:stepback}
-@keyframes stepin{from{opacity:0;transform:translateX(24px)}}
-@keyframes stepback{from{opacity:0;transform:translateX(-24px)}}
-.step h2{font-weight:400;font-size:32px;letter-spacing:-.04em;line-height:1.05}
-.step .hint{font-size:15px;color:var(--tinta2);margin-top:8px}
-.f{margin-top:22px}
-.f>label,.f>.lbl{display:block;font-size:14px;font-weight:600;margin-bottom:10px}
-input[type=text],input[type=email],input[type=tel],select{width:100%;height:56px;padding:0 16px;border:1.5px solid var(--linea);border-radius:16px;font:500 17px 'Instrument Sans',sans-serif;color:var(--tinta);background:#fff;outline:none;transition:border-color .2s,box-shadow .2s}
+.prog .bar i{display:block;height:100%;width:0;border-radius:9px;background:var(--verde);transition:width .45s var(--ease)}
+.prog .cnt{font-size:13px;font-weight:600;color:var(--tinta3);white-space:nowrap;font-variant-numeric:tabular-nums;transition:color .3s}
+.prog .cnt.full{color:var(--verde)}
+.card h2{font-weight:400;font-size:30px;letter-spacing:-.04em;line-height:1.08}
+.card .hint{font-size:15px;color:var(--tinta2);margin-top:8px;line-height:1.45}
+.group{margin-top:22px}
+.group h3{font-size:13px;font-weight:600;color:var(--tinta3);padding-bottom:10px;border-bottom:1px solid var(--linea)}
+.f{margin-top:18px}
+.f>label{display:flex;align-items:baseline;gap:6px;font-size:14px;font-weight:600;margin-bottom:8px}
+.ctl{position:relative}
+input[type=text],input[type=email],input[type=tel],select{width:100%;height:54px;padding:0 44px 0 16px;border:1.5px solid var(--linea);border-radius:15px;font:500 17px 'Instrument Sans',sans-serif;color:var(--tinta);background:#fff;outline:none;transition:border-color .2s,box-shadow .2s}
+select{appearance:none;-webkit-appearance:none;color:#A3ACA8;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%237A8580' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+select.filled{color:var(--tinta)}
+select option{color:var(--tinta)}
 input::placeholder{color:#A3ACA8;font-weight:400}
 input:focus,select:focus{border-color:var(--verde);box-shadow:0 0 0 4px rgba(30,122,82,.14)}
-.bad{border-color:var(--err)!important;box-shadow:0 0 0 4px rgba(180,35,42,.1)!important}
-.tel{display:flex;gap:10px}.tel select{width:118px;flex:none;padding:0 10px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-/* opciones como fichas */
-.chips{display:flex;flex-wrap:wrap;gap:8px;border:0}
-.chips.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-.chips input{position:absolute;opacity:0;width:1px;height:1px}
-.chips label{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 16px;border-radius:14px;border:1.5px solid var(--linea);background:#fff;font-size:15px;font-weight:500;color:var(--tinta2);cursor:pointer;text-align:center;line-height:1.2;transition:background .2s,border-color .2s,color .2s,transform .15s}
-.chips label:hover{border-color:rgba(14,26,21,.3)}
-.chips input:checked+label{background:var(--tinta);border-color:var(--tinta);color:#fff}
-.chips input:focus-visible+label{outline:2px solid var(--verde);outline-offset:2px}
-.chips label:active{transform:scale(.97)}
-fieldset.chips{min-inline-size:0}
-.chips.bad label{border-color:rgba(180,35,42,.5)}
-/* acciones */
-.acts{display:flex;align-items:center;gap:12px;margin-top:28px}
-.btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:10px;height:58px;padding:0 24px;border:0;border-radius:999px;font:600 17px 'Instrument Sans',sans-serif;cursor:pointer;position:relative;overflow:hidden;isolation:isolate;transition:background .2s,transform .15s}
-.btn svg{width:18px;height:18px;transition:transform .25s var(--ease)}
-.btn:hover svg{transform:translateX(3px)}
-.btn:active{transform:scale(.98)}
-.next{background:var(--tinta);color:#fff}.next:hover{background:#000}
-#go{background:var(--verde);color:#fff}#go:hover{background:var(--verde6)}
-#go:disabled{opacity:.7;cursor:default}
-#go::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.3) 50%,transparent 70%);transform:translateX(-130%);animation:sh 4s var(--ease) 1.5s infinite}
-@keyframes sh{0%,65%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
-.prev{flex:none;width:58px;height:58px;border-radius:50%;border:1.5px solid var(--linea);background:#fff;cursor:pointer;display:grid;place-items:center;color:var(--tinta)}
-.prev:hover{border-color:var(--tinta)}
-.prev svg{width:18px;height:18px}
-#err{display:none;margin-top:16px;padding:12px 14px;border-radius:14px;background:#FBEDEA;color:var(--err);font-size:14px;font-weight:500;line-height:1.4}
-.reassure{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin-top:16px;font-size:13px;color:var(--tinta3)}
-.reassure span{display:inline-flex;align-items:center;gap:6px}
-.reassure svg{width:14px;height:14px;color:var(--verde)}
-.trust{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:14px;color:var(--tinta2)}
-.trust b{color:var(--tinta);font-weight:600}
+.tel{display:flex;gap:10px}
+.tel select{width:112px;flex:none;padding:0 28px 0 12px;background-position:right 10px center;color:var(--tinta)}
+.tel .ctl{flex:1}
+.ok-mark{position:absolute;right:14px;top:50%;width:22px;height:22px;margin-top:-11px;border-radius:50%;background:var(--verde);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;opacity:0;transform:scale(.4);transition:opacity .25s,transform .3s var(--ease);pointer-events:none}
+.f.ok .ok-mark{opacity:1;transform:scale(1)}
+.f.ok select{background-image:none}
+.f.bad input,.f.bad select{border-color:var(--err);box-shadow:0 0 0 4px rgba(180,35,42,.1)}
+.msg{display:none;font-size:13px;color:var(--err);margin-top:6px}
+.f.bad .msg{display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
 
-@media (prefers-reduced-motion:reduce){.step.on,#go::after{animation:none}.live,.prog .bar i{transition:none}}
+/* revelado de la segunda parte */
+.nudge{margin-top:22px;padding:14px 16px;border-radius:15px;background:#F1F4F2;font-size:14.5px;color:var(--tinta2)}
+#negocioGrp{display:none}
+#negocioGrp.show{display:block;animation:reveal .5s var(--ease)}
+@keyframes reveal{from{opacity:0;transform:translateY(12px)}}
+
+.btn{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:10px;height:58px;margin-top:26px;padding:0 24px;border:0;border-radius:999px;font:600 17px 'Instrument Sans',sans-serif;cursor:pointer;background:var(--verde);color:#fff;transition:background .2s,transform .15s}
+.btn:hover{background:var(--verde6)}
+.btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.7;cursor:default}
+.btn:focus-visible{outline:3px solid var(--menta);outline-offset:3px}
+.reassure{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-top:14px;font-size:13px;color:var(--tinta3)}
+.done{display:none;text-align:center;padding:40px 8px}
+.done b{display:block;font-size:26px;font-weight:500;letter-spacing:-.03em}
+.done span{display:block;margin-top:8px;color:var(--tinta2)}
+.card.sent form{display:none}
+.card.sent .done{display:block}
+
+@media (prefers-reduced-motion:reduce){#negocioGrp.show{animation:none}.prog .bar i,.ok-mark,.live{transition:none}}
 @media (max-width:920px){
- .grid{grid-template-columns:1fr;gap:20px;align-items:start}
- .side h1{font-size:34px;margin:12px 0 8px}
- .side .lead,.gets,.live,.livecap,.side .trust{display:none}
- .top{margin-bottom:16px}
+ .grid{grid-template-columns:1fr;gap:18px}
+ .side{position:static;padding-top:0}
+ .side h1{font-size:32px;margin:12px 0 6px}
+ .side .lead,.live,.livecap{display:none}
+ .top{margin-bottom:14px}
  .page{padding:16px 14px 32px}
  .card{padding:22px 18px;border-radius:26px}
- .step h2{font-size:26px}
- .chips.cols3{grid-template-columns:repeat(2,minmax(0,1fr))}
- .two{grid-template-columns:1fr;gap:0}
- .two .f{margin-top:22px}
- .chips label{min-height:42px;padding:8px 14px;font-size:14.5px;border-radius:12px}
+ .card h2{font-size:25px}
+ .two{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -135,63 +123,49 @@ fieldset.chips{min-inline-size:0}
   <div class="grid">
     <div class="side">
       <span class="tag"><i></i>Demo de 30 minutos, personalizada</span>
-      <h1>Agenda tu demo <span class="g">en menos de un minuto.</span></h1>
-      <p class="lead">Contesta 3 pasos rápidos y elige el horario que te acomode. Llegamos a la llamada con tu programa de lealtad ya pensado para tu negocio.</p>
-      <div class="gets">
-        <div class="get"><span class="n">1</span><div><b>Tu tarjeta, con tu marca</b><span>Te mostramos cómo se vería en el wallet de tus clientes.</span></div></div>
-        <div class="get"><span class="n">2</span><div><b>Los mensajes para tu giro</b><span>Qué les llega por WhatsApp y en qué momento.</span></div></div>
-        <div class="get"><span class="n">3</span><div><b>Cuánto puedes recuperar</b><span>Números aterrizados a tu ticket y tus sucursales.</span></div></div>
-      </div>
+      <h1>Agenda tu demo gratuita</h1>
+      <p class="lead">Déjanos tus datos y cuéntanos de tu negocio. Llegamos a la llamada con tu programa de lealtad ya pensado para tu giro, y te mostramos cómo se vería tu tarjeta en el wallet de tus clientes.</p>
       <div class="live" id="live" aria-hidden="true">
         <div class="t"><span class="lg" id="lvI">TN</span><span class="nm"><b id="lvN">Tu negocio</b><small id="lvG">Tarjeta de sellos</small></span><span class="ch">Sellos</span></div>
         <div class="st"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
-        <div class="cap">7 de 10 · el 10º va gratis</div>
+        <div class="cap">7 de 10 sellos, el décimo va gratis</div>
       </div>
       <p class="livecap">Así se vería la tarjeta de tu negocio.</p>
-      <div class="trust"><span>🟢 <b>+1,000</b> negocios</span><span>⚡ Setup en <b>15 min</b></span><span>📱 Sin tarjetas físicas</span></div>
     </div>
 
-    <div class="card">
-      <div class="prog" aria-hidden="true"><div class="bar"><i id="pbar"></i></div><span id="plabel">Paso 1 de 3</span></div>
+    <div class="card" id="card">
       <form id="f" novalidate>
+        <div class="prog" aria-hidden="true"><div class="bar"><i id="pbar"></i></div><span class="cnt" id="cnt">0 de 6</span></div>
+        <h2>Cuéntanos de ti y de tu negocio</h2>
+        <p class="hint">Solo 6 preguntas sobre tu negocio, sin contar tus datos de contacto. Toma menos de un minuto.</p>
+
         <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
 
-        <section class="step on" data-step="1" aria-label="Paso 1 de 3: tu negocio">
-          <h2>Cuéntanos de tu negocio</h2>
-          <p class="hint">Así preparamos la demo para tu giro.</p>
-          <div class="f"><label for="negocio">Nombre de tu negocio</label><input type="text" id="negocio" name="negocio" required placeholder="Ej. Café La Esquina" autocomplete="organization" maxlength="80"></div>
-          <fieldset class="f chips" id="giro" data-name="giro"><legend class="lbl">¿Qué tipo de negocio es?</legend></fieldset>
-          <fieldset class="f chips" id="suc" data-name="sucursales"><legend class="lbl">¿Cuántas sucursales tienes?</legend></fieldset>
-        </section>
-
-        <section class="step" data-step="2" aria-label="Paso 2 de 3: tu operación">
-          <h2>Un par de datos más</h2>
-          <p class="hint">Con esto calculamos cuánto puedes recuperar.</p>
-          <fieldset class="f chips cols3" id="tk" data-name="ticket"><legend class="lbl">Ticket promedio por cliente</legend></fieldset>
-          <fieldset class="f chips" id="rol" data-name="rol"><legend class="lbl">¿Cuál es tu rol?</legend></fieldset>
-          <div class="f"><label for="ciudad">Ciudad</label><input type="text" id="ciudad" name="ciudad" required placeholder="Ej. Monterrey" autocomplete="address-level2"></div>
-        </section>
-
-        <section class="step" data-step="3" aria-label="Paso 3 de 3: tus datos">
-          <h2>¿A quién le mandamos la invitación?</h2>
-          <p class="hint">Te confirmamos la demo por WhatsApp y correo.</p>
-          <div class="f"><label for="nombre">Tu nombre</label><input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="Nombre y apellido"></div>
-          <div class="f"><label for="telefono">WhatsApp</label><div class="tel"><select name="lada" id="lada" aria-label="Lada del país"></select><input type="tel" id="telefono" name="telefono" required inputmode="numeric" placeholder="10 dígitos" autocomplete="tel-national"></div></div>
-          <div class="f"><label for="correo">Correo</label><input type="email" id="correo" name="correo" required autocomplete="email" placeholder="tu@negocio.com"></div>
-        </section>
-
-        <div id="err" role="alert"></div>
-        <div class="acts">
-          <button type="button" class="prev" id="prev" aria-label="Paso anterior" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
-          <button type="button" class="btn next" id="next">Continuar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-          <button type="submit" class="btn" id="go" hidden>Elegir mi horario <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <div class="group">
+          <h3>Tus datos</h3>
+          <div class="f" data-k="nombre"><label for="nombre">Tu nombre</label><div class="ctl"><input type="text" id="nombre" name="nombre" autocomplete="name" placeholder="Nombre y apellido" maxlength="80"><span class="ok-mark">✓</span></div><p class="msg">Escribe tu nombre.</p></div>
+          <div class="f" data-k="telefono"><label for="telefono">WhatsApp</label><div class="tel"><select name="lada" id="lada" aria-label="Lada del país"></select><div class="ctl"><input type="tel" id="telefono" name="telefono" inputmode="numeric" autocomplete="tel-national" placeholder="10 dígitos"><span class="ok-mark">✓</span></div></div><p class="msg">Escribe tu WhatsApp a 10 dígitos.</p></div>
+          <div class="f" data-k="correo"><label for="correo">Correo</label><div class="ctl"><input type="email" id="correo" name="correo" autocomplete="email" placeholder="tu@negocio.com"><span class="ok-mark">✓</span></div><p class="msg">Revisa tu correo, parece tener un error.</p></div>
         </div>
-        <div class="reassure">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Sin spam</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>30 minutos</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Sin compromiso</span>
+
+        <p class="nudge" id="nudge">Completa tus datos para seguir con los de tu negocio.</p>
+
+        <div class="group" id="negocioGrp">
+          <h3>Tu negocio</h3>
+          <div class="f" data-k="negocio"><label for="negocio">Nombre de tu negocio</label><div class="ctl"><input type="text" id="negocio" name="negocio" autocomplete="organization" placeholder="Ej. Café La Esquina" maxlength="80"><span class="ok-mark">✓</span></div><p class="msg">Escribe el nombre de tu negocio.</p></div>
+          <div class="two">
+            <div class="f" data-k="giro"><label for="giro">Tipo de negocio</label><div class="ctl"><select id="giro" name="giro"></select><span class="ok-mark">✓</span></div><p class="msg">Elige tu tipo de negocio.</p></div>
+            <div class="f" data-k="sucursales"><label for="sucursales">Sucursales</label><div class="ctl"><select id="sucursales" name="sucursales"></select><span class="ok-mark">✓</span></div><p class="msg">Elige cuántas sucursales tienes.</p></div>
+            <div class="f" data-k="ticket"><label for="ticket">Ticket promedio</label><div class="ctl"><select id="ticket" name="ticket"></select><span class="ok-mark">✓</span></div><p class="msg">Elige tu ticket promedio.</p></div>
+            <div class="f" data-k="rol"><label for="rol">Tu rol</label><div class="ctl"><select id="rol" name="rol"></select><span class="ok-mark">✓</span></div><p class="msg">Elige tu rol.</p></div>
+          </div>
+          <div class="f" data-k="ciudad"><label for="ciudad">Ciudad</label><div class="ctl"><input type="text" id="ciudad" name="ciudad" autocomplete="address-level2" placeholder="Ej. Monterrey" maxlength="60"><span class="ok-mark">✓</span></div><p class="msg">Escribe tu ciudad.</p></div>
         </div>
+
+        <button type="submit" class="btn" id="go">Elegir mi horario</button>
+        <div class="reassure"><span>Sin spam</span><span>30 minutos</span><span>Sin compromiso</span></div>
       </form>
+      <div class="done" role="status"><b>Listo, ya casi.</b><span>Te llevamos a elegir el horario de tu demo.</span></div>
     </div>
   </div>
 </div>
@@ -202,80 +176,104 @@ fieldset.chips{min-inline-size:0}
   var CAL="https://calendly.com/hola-retenia/30min";
   var HOOK="https://n8n.unifai.com.mx/webhook/87e15310-bc00-4a0d-a3cf-a5e1b724b389";
   var LADAS=[["🇲🇽","+52"],["🇺🇸","+1"],["🇨🇴","+57"],["🇦🇷","+54"],["🇨🇱","+56"],["🇵🇪","+51"],["🇪🇨","+593"],["🇬🇹","+502"],["🇪🇸","+34"]];
-  var GIROS=["Cafetería","Restaurante","Estética / Salón de belleza","Gimnasio / Fitness","Tienda / Retail","Panadería","Consultorio","Veterinaria","Servicios profesionales","Área de juegos infantil","Otro"];
-  var SUC=["No tengo sucursal","1","2 – 5","6 – 10","11 – 20","Más de 20"];
-  var ROLES=["Dueño / Dueña","Gerente","Marketing","Otro"];
-  var TICKETS=["Menos de $100","$100 – $300","$300 – $600","$600 – $1,000","$1,000 – $3,000","Más de $3,000"];
+  var OPTS={
+    giro:["Cafetería","Restaurante","Estética / Salón de belleza","Gimnasio / Fitness","Tienda / Retail","Panadería","Consultorio","Veterinaria","Servicios profesionales","Área de juegos infantil","Otro"],
+    sucursales:["No tengo sucursal","1","2 – 5","6 – 10","11 – 20","Más de 20"],
+    ticket:["Menos de $100","$100 – $300","$300 – $600","$600 – $1,000","$1,000 – $3,000","Más de $3,000"],
+    rol:["Dueño / Dueña","Gerente","Marketing","Otro"]
+  };
   var GRAD={"Cafetería":"linear-gradient(150deg,#2a7a58,#13553b)","Restaurante":"linear-gradient(150deg,#c7964e,#8a5f24)","Estética / Salón de belleza":"linear-gradient(150deg,#9a6f85,#5f3f52)","Gimnasio / Fitness":"linear-gradient(150deg,#26323a,#0f171c)","Tienda / Retail":"linear-gradient(150deg,#2f5a6e,#173444)","Panadería":"linear-gradient(150deg,#d06a4b,#9b3f27)","Veterinaria":"linear-gradient(150deg,#5b7f55,#2e4a2a)"};
-  var F=document.getElementById('f'),err=document.getElementById('err');
+
+  var CONTACTO=['nombre','telefono','correo'];
+  var NEGOCIO=['negocio','giro','sucursales','ticket','rol','ciudad'];
+  var TODOS=CONTACTO.concat(NEGOCIO);
+
+  var F=document.getElementById('f');
   function $(id){return document.getElementById(id);}
-  function chips(id,arr){var fs=$(id),n=fs.getAttribute('data-name');arr.forEach(function(v,i){var iid=id+'_'+i;var inp=document.createElement('input');inp.type='radio';inp.name=n;inp.value=v;inp.id=iid;var lb=document.createElement('label');lb.htmlFor=iid;lb.textContent=v;fs.appendChild(inp);fs.appendChild(lb);});}
+  function g(n){var el=F.elements[n];return el?(el.value||'').trim():'';}
+  function ev(n,p){try{if(window.rtTrack)rtTrack(n,p);}catch(_){}}
+
   $('lada').innerHTML=LADAS.map(function(l,i){return '<option value="'+l[1]+'"'+(i===0?' selected':'')+'>'+l[0]+' '+l[1]+'</option>';}).join('');
-  chips('giro',GIROS);chips('suc',SUC);chips('tk',TICKETS);chips('rol',ROLES);
+  Object.keys(OPTS).forEach(function(k){
+    $(k).innerHTML='<option value="">Selecciona…</option>'+OPTS[k].map(function(v){return '<option>'+v+'</option>';}).join('');
+  });
 
   // UTMs/fbclid: primero los de esta URL; si no hay, los de la página de retenia.mx de donde vino
   function refQs(){try{var r=new URL(document.referrer);return r.host===location.host?r.searchParams:null;}catch(e){return null;}}
   function qp(n){try{var v=new URLSearchParams(location.search).get(n);if(v)return v;var r=refQs();return (r&&r.get(n))||"";}catch(e){return "";}}
   function ck(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?m.pop():"";}
   try{var nb=new URLSearchParams(location.search).get('negocio');if(nb)F.elements['negocio'].value=nb.slice(0,80);}catch(_){}
-  function ev(n,p){try{if(window.rtTrack)rtTrack(n,p);}catch(_){}}
-  (function(){var on=false;function st(){if(on)return;on=true;ev('FormInicio',{negocio_prellenado:F.elements['negocio'].value?'si':'no'});}
-    F.addEventListener('input',st,true);F.addEventListener('change',st,true);})();
-  var g=function(n){var el=F.elements[n];if(!el)return '';return (el.value||'').trim();};
+
+  function valid(k){
+    var v=g(k);if(!v)return false;
+    if(k==='telefono')return v.replace(/\D/g,'').length>=10;
+    if(k==='correo')return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    return true;
+  }
+  function field(k){return F.querySelector('.f[data-k="'+k+'"]');}
+
+  // progreso y revelado
+  var revealed=false,pasoContacto=false;
+  function refresh(){
+    var n=0;
+    TODOS.forEach(function(k){var ok=valid(k);if(ok&&NEGOCIO.indexOf(k)>-1)n++;field(k).classList.toggle('ok',ok);});
+    $('cnt').textContent=n+' de '+NEGOCIO.length;
+    $('cnt').classList.toggle('full',n===NEGOCIO.length);
+    $('pbar').style.width=(n/NEGOCIO.length*100)+'%';
+    if(!revealed&&CONTACTO.every(valid)){
+      revealed=true;$('nudge').hidden=true;$('negocioGrp').classList.add('show');
+      if(!pasoContacto){pasoContacto=true;ev('FormPaso',{paso:1,seccion:'contacto'});}
+    }
+  }
 
   // tarjeta en vivo
   function live(){var nm=g('negocio')||'Tu negocio';var w=nm.split(/\s+/).filter(Boolean);
     $('lvN').textContent=nm;$('lvI').textContent=((w[0]||'T')[0]+((w[1]||'')[0]||'')).toUpperCase();
     var gi=g('giro');$('lvG').textContent=gi?gi.split(' / ')[0]:'Tarjeta de sellos';
     $('live').style.setProperty('--g',GRAD[gi]||GRAD['Cafetería']);}
-  F.addEventListener('input',live);F.addEventListener('change',live);live();
 
-  // pasos
-  var step=1,N=3;
-  var REQ={1:[['negocio','el nombre de tu negocio'],['giro','el tipo de negocio'],['sucursales','tus sucursales']],
-           2:[['ticket','el ticket promedio'],['rol','tu rol'],['ciudad','tu ciudad']],
-           3:[['nombre','tu nombre'],['telefono','tu WhatsApp'],['correo','tu correo']]};
-  function mark(n,bad){var el=F.elements[n];if(!el)return;var node=(el.length&&!el.tagName)?$({giro:'giro',sucursales:'suc',ticket:'tk',rol:'rol'}[n]):el;if(node&&node.classList)node.classList.toggle('bad',bad);}
-  function fail(msg,motivo){err.textContent=msg;err.style.display='block';ev('FormError',{motivo:motivo,paso:step});}
-  function check(s){var miss=[];REQ[s].forEach(function(r){var empty=!g(r[0]);mark(r[0],empty);if(empty)miss.push(r[1]);});
-    if(miss.length){fail('Falta completar: '+miss.join(', ')+'.','faltan_campos');return false;}
-    if(s===3){var tel=g('telefono').replace(/\D/g,'');if(tel.length<8){mark('telefono',true);fail('Tu número de WhatsApp parece incompleto.','whatsapp');return false;}
-      if(!/.+@.+\..+/.test(g('correo'))){mark('correo',true);fail('Revisa tu correo, parece tener un error.','correo');return false;}}
-    err.style.display='none';return true;}
-  function show(s,dir){step=s;[].forEach.call(F.querySelectorAll('.step'),function(sec){var on=+sec.getAttribute('data-step')===s;sec.classList.toggle('on',on);sec.classList.toggle('back',on&&dir<0);});
-    $('pbar').style.width=(s/N*100)+'%';$('plabel').textContent='Paso '+s+' de '+N;
-    $('prev').hidden=s===1;$('next').hidden=s===N;$('go').hidden=s!==N;err.style.display='none';
-    var first=F.querySelector('.step.on input[type=text],.step.on input[type=tel],.step.on input[type=email]');
-    if(first&&!first.value&&window.innerWidth>920)setTimeout(function(){first.focus({preventScroll:true});},60);
-    if(window.innerWidth<=920)F.closest('.card').scrollIntoView({behavior:'smooth',block:'start'});}
-  $('next').addEventListener('click',function(){if(check(step)){ev('FormPaso',{paso:step});show(step+1,1);}});
-  $('prev').addEventListener('click',function(){show(step-1,-1);});
-  F.addEventListener('change',function(e){if(e.target.type==='radio'){mark(e.target.name,false);
-    // avanzar solo si el paso ya está completo al elegir una ficha
-    }});
-  F.addEventListener('input',function(e){if(e.target.classList)e.target.classList.remove('bad');});
-  F.addEventListener('keydown',function(e){if(e.key==='Enter'&&step<N&&e.target.tagName==='INPUT'){e.preventDefault();$('next').click();}});
+  var started=false;
+  function onEdit(e){
+    var t=e.target;
+    if(!started&&t.name!=='website'){started=true;ev('FormInicio',{negocio_prellenado:g('negocio')?'si':'no'});}
+    if(t.tagName==='SELECT')t.classList.toggle('filled',!!t.value);
+    var f=t.closest&&t.closest('.f');if(f)f.classList.remove('bad');
+    refresh();live();
+  }
+  F.addEventListener('input',onEdit);F.addEventListener('change',onEdit);
+
+  // al salir de un campo con algo escrito pero inválido, mostrar el aviso
+  F.addEventListener('blur',function(e){var f=e.target.closest&&e.target.closest('.f');if(!f)return;var k=f.getAttribute('data-k');if(g(k)&&!valid(k))f.classList.add('bad');},true);
+
+  refresh();live();
 
   var sent=false;
   F.addEventListener('submit',function(e){
     e.preventDefault();
-    if(step<N){$('next').click();return;}
-    for(var s=1;s<=N;s++){if(!check(s)){if(s!==step)show(s,-1);check(s);return;}}
-    var btn=$('go');
+    if(sent)return;
+    var bad=TODOS.filter(function(k){return !valid(k);});
+    if(bad.length){
+      bad.forEach(function(k){if(revealed||CONTACTO.indexOf(k)>-1)field(k).classList.add('bad');});
+      var motivo=bad.indexOf('telefono')>-1&&g('telefono')?'whatsapp':(bad.indexOf('correo')>-1&&g('correo')?'correo':'faltan_campos');
+      ev('FormError',{motivo:motivo,campos:bad.join(','),seccion:CONTACTO.indexOf(bad[0])>-1?'contacto':'negocio'});
+      var first=F.elements[bad[0]];if(first){first.focus({preventScroll:true});field(bad[0]).scrollIntoView({behavior:'smooth',block:'center'});}
+      return;
+    }
+
+    sent=true;
+    var btn=$('go');btn.disabled=true;btn.textContent='Enviando…';
     var tel=g('telefono').replace(/\D/g,''),lada=g('lada').replace(/\D/g,'');
-    btn.disabled=true;btn.firstChild.nodeValue='Enviando… ';
     var qualified=(g('sucursales')!=='No tengo sucursal'&&parseInt((g('ticket').replace(/,/g,'').match(/[0-9]+/)||['0'])[0],10)>=300);
     ev('FormEnviado',{califica:qualified?'si':'no',giro:g('giro'),sucursales:g('sucursales'),ticket:g('ticket')});
     var eventId='lead_'+Date.now()+'_'+Math.floor(Math.random()*1e6);
-    function finish(token){
-      var data={nombre:g('nombre'),negocio:g('negocio'),whatsapp:lada+tel,correo:g('correo'),tipo_negocio:g('giro'),sucursales:g('sucursales'),ciudad:g('ciudad'),rol:g('rol'),ticket_promedio:g('ticket'),submittedAt:new Date().toISOString(),event_id:eventId,page_url:location.href,referrer:document.referrer||'',user_agent:navigator.userAgent,utm_source:qp('utm_source'),utm_medium:qp('utm_medium'),utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content'),utm_term:qp('utm_term'),fbclid:qp('fbclid'),fbp:ck('_fbp'),fbc:ck('_fbc'),hp:g('website'),ff:(Date.now()-T0)};
-      var body=Object.keys(data).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(data[k]);}).join('&');
-      if(qualified){try{if(window.fbq)fbq('track','Lead',{content_name:'Demo Request Retenia',currency:'MXN',value:0},{eventID:eventId});}catch(_){}}
-      function go(){if(sent)return;sent=true;location.href=CAL+'?name='+encodeURIComponent(data.nombre)+'&email='+encodeURIComponent(data.correo)+'&a1='+encodeURIComponent('+'+lada+' '+tel);}
-      try{fetch(HOOK,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:body}).then(go,go);}catch(_){}
-      setTimeout(go,1800);
-    }
-    finish('');
+    var data={nombre:g('nombre'),negocio:g('negocio'),whatsapp:lada+tel,correo:g('correo'),tipo_negocio:g('giro'),sucursales:g('sucursales'),ciudad:g('ciudad'),rol:g('rol'),ticket_promedio:g('ticket'),submittedAt:new Date().toISOString(),event_id:eventId,page_url:location.href,referrer:document.referrer||'',user_agent:navigator.userAgent,utm_source:qp('utm_source'),utm_medium:qp('utm_medium'),utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content'),utm_term:qp('utm_term'),fbclid:qp('fbclid'),fbp:ck('_fbp'),fbc:ck('_fbc'),hp:g('website'),ff:(Date.now()-T0)};
+    var body=Object.keys(data).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(data[k]);}).join('&');
+    if(qualified){try{if(window.fbq)fbq('track','Lead',{content_name:'Demo Request Retenia',currency:'MXN',value:0},{eventID:eventId});}catch(_){}}
+    var left=false;
+    function go(){if(left)return;left=true;location.href=CAL+'?name='+encodeURIComponent(data.nombre)+'&email='+encodeURIComponent(data.correo)+'&a1='+encodeURIComponent('+'+lada+' '+tel);}
+    $('card').classList.add('sent');
+    try{fetch(HOOK,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:body}).then(function(){setTimeout(go,600);},go);}catch(_){go();}
+    setTimeout(go,1800);
   });
 })();
 </script>
