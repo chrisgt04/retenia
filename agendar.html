@@ -262,7 +262,8 @@ input:focus,select:focus{border-color:var(--verde);box-shadow:0 0 0 4px rgba(30,
     sent=true;
     var btn=$('go');btn.disabled=true;btn.textContent='Enviando…';
     var tel=g('telefono').replace(/\D/g,''),lada=g('lada').replace(/\D/g,'');
-    var qualified=(g('sucursales')!=='No tengo sucursal'&&parseInt((g('ticket').replace(/,/g,'').match(/[0-9]+/)||['0'])[0],10)>=300);
+    var sN=parseInt((g('sucursales').match(/[0-9]+/)||['0'])[0],10),tN=parseInt((g('ticket').replace(/,/g,'').match(/[0-9]+/)||['0'])[0],10);
+    var qualified=(sN>=2||(sN>=1&&tN>=300));
     ev('FormEnviado',{califica:qualified?'si':'no',giro:g('giro'),sucursales:g('sucursales'),ticket:g('ticket')});
     var eventId='lead_'+Date.now()+'_'+Math.floor(Math.random()*1e6);
     var data={nombre:g('nombre'),negocio:g('negocio'),whatsapp:lada+tel,correo:g('correo'),tipo_negocio:g('giro'),sucursales:g('sucursales'),ciudad:g('ciudad'),rol:g('rol'),ticket_promedio:g('ticket'),submittedAt:new Date().toISOString(),event_id:eventId,page_url:location.href,referrer:document.referrer||'',user_agent:navigator.userAgent,utm_source:qp('utm_source'),utm_medium:qp('utm_medium'),utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content'),utm_term:qp('utm_term'),fbclid:qp('fbclid'),fbp:ck('_fbp'),fbc:ck('_fbc'),hp:g('website'),ff:(Date.now()-T0)};
