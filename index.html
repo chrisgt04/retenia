@@ -76,8 +76,16 @@ section{scroll-margin-top:8px}
 /* giros */
 .giros{text-align:center;padding:60px 24px;border-bottom:1px solid #EEF3F0}
 .giros p{margin:0 0 22px;font-size:22px;font-weight:600;letter-spacing:-.02em}
-.gl{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1000px;margin:0 auto}
-.g{padding:11px 18px;border-radius:999px;background:#F2F5F3;border:1px solid #E1E7E4;font-size:16px;font-weight:500}
+.giros{overflow:hidden}
+.gmq{position:relative;max-width:1180px;margin:0 auto -16px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.gtr{display:flex;width:max-content;animation:gmq 38s linear infinite}
+.gmq:hover .gtr{animation-play-state:paused}
+.gset{display:flex;gap:12px;padding:8px 12px 24px 0;flex-shrink:0}
+.g{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:12px 20px;border-radius:999px;background:#fff;border:1px solid #E1E7E4;box-shadow:0 6px 18px -12px rgba(14,26,21,.35);font-size:16px;font-weight:500;color:#0E1A15}
+.g i{font-style:normal;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#EAF6F0;font-size:16px}
+@keyframes gmq{to{transform:translateX(-50%)}}
+@media (max-width:640px){.giros{padding:44px 0}.giros p{padding:0 24px;font-size:19px}.gtr{animation-duration:28s}.g{padding:10px 16px;font-size:15px}.gmq{-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}}
+@media (prefers-reduced-motion:reduce){.gtr{width:auto;animation:none}.gset{flex-wrap:wrap;justify-content:center;padding:0}.gset[aria-hidden]{display:none}.gmq{-webkit-mask-image:none;mask-image:none}}
 /* canales */
 .cg{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:16px;margin-top:48px}
 .wac{grid-row:span 2;border-radius:30px;background:#0B3A27;color:#fff;padding:34px;display:flex;flex-direction:column;gap:14px}
@@ -386,7 +394,7 @@ transform:translateY(140%);opacity:0;transition:transform .6s cubic-bezier(.2,.8
   </div>
 </div></header>
 
-<div class="giros"><p class="rv">Automatizaciones de <span class="o">lealtad</span> para todo tipo de negocio</p><div class="gl rv d1"><span class="g">☕ Cafeterías</span><span class="g">🍽️ Restaurantes</span><span class="g">💇 Salones y spas</span><span class="g">💪 Gimnasios</span><span class="g">💈 Barberías</span><span class="g">🛍️ Tiendas</span><span class="g">🥐 Panaderías</span><span class="g">🩺 Clínicas</span><span class="g">🐾 Veterinarias</span><span class="g">🍦 Heladerías</span></div></div>
+<div class="giros"><p class="rv">Automatizaciones de <span class="o">lealtad</span> para todo tipo de negocio</p><div class="gmq rv d1"><div class="gtr"><div class="gset"><span class="g"><i>☕</i>Cafeterías</span><span class="g"><i>🍽️</i>Restaurantes</span><span class="g"><i>💇</i>Salones y spas</span><span class="g"><i>💪</i>Gimnasios</span><span class="g"><i>💈</i>Barberías</span><span class="g"><i>🛍️</i>Tiendas</span><span class="g"><i>🥐</i>Panaderías</span><span class="g"><i>🩺</i>Clínicas</span><span class="g"><i>🐾</i>Veterinarias</span><span class="g"><i>🍦</i>Heladerías</span></div><div class="gset" aria-hidden="true"><span class="g"><i>☕</i>Cafeterías</span><span class="g"><i>🍽️</i>Restaurantes</span><span class="g"><i>💇</i>Salones y spas</span><span class="g"><i>💪</i>Gimnasios</span><span class="g"><i>💈</i>Barberías</span><span class="g"><i>🛍️</i>Tiendas</span><span class="g"><i>🥐</i>Panaderías</span><span class="g"><i>🩺</i>Clínicas</span><span class="g"><i>🐾</i>Veterinarias</span><span class="g"><i>🍦</i>Heladerías</span></div></div></div></div>
 
 <section id="canales"><div class="w">
   <div class="head rv"><span class="eb">Canales</span><h2 class="h2">Tu negocio le escribe a cada cliente, <span class="o">en automático.</span></h2><p class="lead">Retenia le avisa a cada cliente en el momento justo por el canal que más usa. Tú no haces nada.</p></div>
