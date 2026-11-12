@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tarjeta VIP D'Liz</title>
+<meta name="robots" content="noindex">
+<style>
+  :root { --bg:#111; --ink:#fff; --gold:#d9a22b; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; background:var(--bg); color:var(--ink); font:16px/1.5 system-ui, sans-serif; text-align:center; }
+  main { padding:24px 16px; max-width:420px; }
+  a.btn { display:block; margin:16px 0 0; padding:14px; border-radius:10px; background:var(--gold); color:#111; font-weight:700; text-decoration:none; }
+  p { color:#ccc; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Tu Tarjeta VIP D'Liz 💛</h1>
+  <p id="msg">Abriendo tu tarjeta…</p>
+  <a class="btn" id="go" href="https://app.retenia.mx/getpass/gQKoCL?utm_source=whatsapp">Obtener mi tarjeta</a>
+</main>
+<script>
+  // Los navegadores internos de WhatsApp/Instagram/Facebook en iPhone no pueden agregar pases a Apple Wallet:
+  // en iOS 17+ el esquema x-safari-https abre el link directo en Safari.
+  var PASS = 'https://app.retenia.mx/getpass/gQKoCL?utm_source=whatsapp';
+  var ua = navigator.userAgent;
+  var ios = /iPhone|iPad|iPod/.test(ua);
+  var safari = ios && /Safari\//.test(ua) && !/CriOS|FxiOS|EdgiOS|WhatsApp|Instagram|FBAN|FBAV/.test(ua);
+  var go = document.getElementById('go');
+  if (ios && !safari) {
+    var s = 'x-safari-' + PASS;
+    go.href = s;
+    go.textContent = 'Abrir en Safari';
+    document.getElementById('msg').textContent = 'Para guardarla en Apple Wallet se abre en Safari.';
+    location.href = s;
+  } else {
+    location.replace(PASS);
+  }
+</script>
+</body>
+</html>
