@@ -25,7 +25,8 @@
   var PASS = 'https://app.retenia.mx/getpass/gQKoCL?utm_source=whatsapp';
   var ua = navigator.userAgent;
   var ios = /iPhone|iPad|iPod/.test(ua);
-  var safari = ios && /Safari\//.test(ua) && !/CriOS|FxiOS|EdgiOS|WhatsApp|Instagram|FBAN|FBAV/.test(ua);
+  // navigator.standalone solo existe en Safari real; los WebView internos no lo tienen (y a veces no se identifican en el UA).
+  var safari = ios && typeof navigator.standalone !== 'undefined' && !/CriOS|FxiOS|EdgiOS|WhatsApp|Instagram|FBAN|FBAV/.test(ua);
   var go = document.getElementById('go');
   if (ios && !safari) {
     var s = 'x-safari-' + PASS;
