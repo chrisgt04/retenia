@@ -20,20 +20,19 @@
   <a class="btn" id="go" href="https://app.retenia.mx/getpass/gQKoCL?utm_source=whatsapp">Obtener mi tarjeta</a>
 </main>
 <script>
-  // Los navegadores internos de WhatsApp/Instagram/Facebook en iPhone no pueden agregar pases a Apple Wallet:
-  // en iOS 17+ el esquema x-safari-https abre el link directo en Safari.
+  // El navegador interno de WhatsApp en iPhone no puede agregar pases a Apple Wallet.
+  // En todo iPhone mandamos el pase a Safari con x-safari-https (iOS 17+), sin intentar adivinar el navegador.
+  // Si iOS no reconoce el esquema (iOS < 17), a los 2 s cae al pase normal.
   var PASS = 'https://app.retenia.mx/getpass/gQKoCL?utm_source=whatsapp';
-  var ua = navigator.userAgent;
-  var ios = /iPhone|iPad|iPod/.test(ua);
-  // navigator.standalone solo existe en Safari real; los WebView internos no lo tienen (y a veces no se identifican en el UA).
-  var safari = ios && typeof navigator.standalone !== 'undefined' && !/CriOS|FxiOS|EdgiOS|WhatsApp|Instagram|FBAN|FBAV/.test(ua);
+  var ios = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   var go = document.getElementById('go');
-  if (ios && !safari) {
+  if (ios) {
     var s = 'x-safari-' + PASS;
     go.href = s;
     go.textContent = 'Abrir en Safari';
-    document.getElementById('msg').textContent = 'Para guardarla en Apple Wallet se abre en Safari.';
+    document.getElementById('msg').textContent = 'Abriendo tu tarjeta en Safari para guardarla en Apple Wallet…';
     location.href = s;
+    setTimeout(function () { if (!document.hidden) location.replace(PASS); }, 2000);
   } else {
     location.replace(PASS);
   }
